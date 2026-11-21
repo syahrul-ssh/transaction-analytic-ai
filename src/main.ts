@@ -10,6 +10,8 @@ async function bootstrap() {
 
   app.useLogger(app.get(Logger));
 
+  app.enableShutdownHooks();
+
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -26,6 +28,10 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
-  await app.listen(process.env.PORT ?? 3000);
+  const port = process.env.PORT ?? 3000;
+
+  await app.listen(port);
+
+  app.get(Logger).log(`Application is running on port: ${port}`);
 }
 bootstrap();

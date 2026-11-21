@@ -14,6 +14,6 @@ export function getTypeOrmConfig(
     synchronize: false,
     entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
-    logging: process.env.NODE_ENV !== 'production',
+    logging: configService.get<string>('app.environment') === 'development',
   };
 }

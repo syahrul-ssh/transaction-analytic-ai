@@ -6,15 +6,18 @@ import databaseConfig from './config/database.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getTypeOrmConfig } from './config/typeorm.config';
 import { validateEnv } from './config/env.validation';
-import { ExampleModule } from './modules/example/example.module';
 import { LoggerModule } from 'nestjs-pino';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       validate: validateEnv,
-      load: [databaseConfig],
+      load: [
+        appConfig,
+        databaseConfig
+      ],
     }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
@@ -30,7 +33,6 @@ import { LoggerModule } from 'nestjs-pino';
             : undefined,
       },
     }),
-    ExampleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
