@@ -23,14 +23,17 @@
     "migration:create": "cross-env-shell ts-node --esm ./node_modules/typeorm/cli.js migration:create src/database/migrations/$npm_config_name"
   },
   "dependencies": {
+    "@nestjs/bullmq": "^12.0.2",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
     "@nestjs/mapped-types": "^2.1.1",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/typeorm": "^11.0.3",
+    "bullmq": "^6.7.8",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
+    "ioredis": "^5.11.1",
     "nestjs-pino": "^4.6.1",
     "pg": "^8.22.0",
     "pino": "^10.3.1",

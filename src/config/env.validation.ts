@@ -75,5 +75,24 @@ export function validateEnv(
     65535,
   );
 
+  config.REDIS_PORT = validateInteger(
+    config,
+    'REDIS_PORT',
+    6379,
+    1,
+    65535,
+  );
+
+  config.REDIS_DB = validateInteger(
+    config,
+    'REDIS_DB',
+    0,
+    0,
+    15,
+  );
+
+  config.REDIS_HOST ??= 'localhost';
+  config.REDIS_PASSWORD ??= '';
+
   return config as Record<string, any>;
 }

@@ -8,6 +8,9 @@ import { getTypeOrmConfig } from './config/typeorm.config';
 import { validateEnv } from './config/env.validation';
 import { LoggerModule } from 'nestjs-pino';
 import appConfig from './config/app.config';
+import redisConfig from './config/redis.config';
+import { RedisModule } from './infrastructure/redis/redis.module';
+import { QueuesModule } from './infrastructure/queues/queue.module';
 
 @Module({
   imports: [
@@ -16,7 +19,8 @@ import appConfig from './config/app.config';
       validate: validateEnv,
       load: [
         appConfig,
-        databaseConfig
+        databaseConfig,
+        redisConfig,
       ],
     }),
     TypeOrmModule.forRootAsync({
@@ -33,6 +37,8 @@ import appConfig from './config/app.config';
             : undefined,
       },
     }),
+    RedisModule,
+    QueuesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
