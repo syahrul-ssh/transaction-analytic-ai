@@ -13,6 +13,8 @@ import { RedisModule } from './infrastructure/redis/redis.module';
 import { QueuesModule } from './infrastructure/queues/queue.module';
 import storageConfig from './config/storage.config';
 import { ImportsModule } from './modules/imports/imports.module';
+import { AnalyticsModule } from './modules/analytics/analytics.module';
+import { TransactionsModule } from './modules/transactions/transactions.module';
 
 @Module({
   imports: [
@@ -43,6 +45,8 @@ import { ImportsModule } from './modules/imports/imports.module';
     RedisModule,
     QueuesModule,
     ImportsModule,
+    AnalyticsModule,
+    TransactionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
