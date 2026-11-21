@@ -22,7 +22,7 @@ import { QUEUE_NAMES } from './queue.constants';
 
     BullModule.registerQueue(
       {
-        name: QUEUE_NAMES.EXAMPLE_QUEUE,
+        name: QUEUE_NAMES.TRANSACTION_IMPORT,
       },
     ),
   ],

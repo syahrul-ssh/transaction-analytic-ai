@@ -8,6 +8,9 @@ const requiredVariables = [
   'DATABASE_USER',
   'DATABASE_PASSWORD',
   'DATABASE_NAME',
+  'IMPORT_BATCH_SIZE',
+  'MAX_UPLOAD_SIZE_MB',
+  'UPLOAD_DIRECTORY',
 ];
 
 function validateInteger(
@@ -93,6 +96,24 @@ export function validateEnv(
 
   config.REDIS_HOST ??= 'localhost';
   config.REDIS_PASSWORD ??= '';
+
+  config.IMPORT_BATCH_SIZE = validateInteger(
+    config,
+    'IMPORT_BATCH_SIZE',
+    1000,
+    1,
+    10000,
+  );
+
+  config.MAX_UPLOAD_SIZE_MB = validateInteger(
+    config,
+    'MAX_UPLOAD_SIZE_MB',
+    100,
+    1,
+    1024,
+  );
+
+  config.UPLOAD_DIRECTORY ??= 'uploads';
 
   return config as Record<string, any>;
 }

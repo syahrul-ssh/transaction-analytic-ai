@@ -11,6 +11,8 @@ import appConfig from './config/app.config';
 import redisConfig from './config/redis.config';
 import { RedisModule } from './infrastructure/redis/redis.module';
 import { QueuesModule } from './infrastructure/queues/queue.module';
+import storageConfig from './config/storage.config';
+import { ImportsModule } from './modules/imports/imports.module';
 
 @Module({
   imports: [
@@ -21,6 +23,7 @@ import { QueuesModule } from './infrastructure/queues/queue.module';
         appConfig,
         databaseConfig,
         redisConfig,
+        storageConfig,
       ],
     }),
     TypeOrmModule.forRootAsync({
@@ -39,6 +42,7 @@ import { QueuesModule } from './infrastructure/queues/queue.module';
     }),
     RedisModule,
     QueuesModule,
+    ImportsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
