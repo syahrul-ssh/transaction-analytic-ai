@@ -36,6 +36,7 @@
     "csv-parser": "^3.2.1",
     "ioredis": "^5.11.1",
     "nestjs-pino": "^4.6.1",
+    "openai": "^7.62.0",
     "pg": "^8.22.0",
     "pino": "^10.3.1",
     "pino-pretty": "^13.1.3",

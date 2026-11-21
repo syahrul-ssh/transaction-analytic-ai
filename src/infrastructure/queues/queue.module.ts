@@ -24,6 +24,9 @@ import { QUEUE_NAMES } from './queue.constants';
       {
         name: QUEUE_NAMES.TRANSACTION_IMPORT,
       },
+      {
+        name: QUEUE_NAMES.TRANSACTION_ANALYSIS,
+      }
     ),
   ],
 

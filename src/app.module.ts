@@ -15,6 +15,7 @@ import storageConfig from './config/storage.config';
 import { ImportsModule } from './modules/imports/imports.module';
 import { AnalyticsModule } from './modules/analytics/analytics.module';
 import { TransactionsModule } from './modules/transactions/transactions.module';
+import aiConfig from './config/ai.config';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { TransactionsModule } from './modules/transactions/transactions.module';
         databaseConfig,
         redisConfig,
         storageConfig,
+        aiConfig,
       ],
     }),
     TypeOrmModule.forRootAsync({

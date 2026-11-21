@@ -1,0 +1,15 @@
+export enum AnalysisType {
+  OVERVIEW = 'OVERVIEW',
+  SPENDING = 'SPENDING',
+  TREND = 'TREND',
+  ANOMALY = 'ANOMALY',
+  COMPREHENSIVE = 'COMPREHENSIVE',
+}
+
+export enum AnalysisStatus {
+  PENDING = 'PENDING',
+  QUEUED = 'QUEUED',
+  PROCESSING = 'PROCESSING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+}
